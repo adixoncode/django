@@ -1,0 +1,26 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'nowy.css' %}">
+</head>
+<body>
+<p>Lista filmów</p>
+<a href="{% url 'nowy_film' %}">Nowy Film</a>
+<div>
+    {% for film in filmy %}
+    <div>
+        <h2>{{film}}</h2>
+        <p>{{film.description}}</p>
+        <a href="{% url 'edytuj_film' film.id %}">Edytuj</a>
+        <a href="{% url 'usun_film' film.id %}">Usun</a>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
